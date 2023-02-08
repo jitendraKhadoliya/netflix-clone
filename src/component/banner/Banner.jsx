@@ -24,7 +24,7 @@ const Banner = () => {
         fetchMovie();
       },[])
       
-      console.log(movies);
+      // console.log(movies);
 
 
 

@@ -2,6 +2,7 @@ import React from 'react'
 import requests from '../axiosData/Request'
 import Banner from '../component/banner/Banner'
 import NavBar from '../component/header/NavBar'
+import Row from '../component/row-folder/Row'
 
 const HomeScreen = () => {
   return (
@@ -11,14 +12,14 @@ const HomeScreen = () => {
         <Banner />
 
         {/* Row component for all fetching */}
-        <Row title="" fetchUrl = {requests.fetchNetflixOriginals} />
-        <Row title="" fetchUrl = {requests.fetchTrending} />
-        <Row title="" fetchUrl = {requests.fetchTopRated} />
-        <Row title="" fetchUrl = {requests.fetchActionMovies} />
-        <Row title="" fetchUrl = {requests.fetchComedyMovies} />
-        <Row title="" fetchUrl = {requests.fetchHorrorMovies} />
-        <Row title="" fetchUrl = {requests.fetchRomanceMovies} />
-        <Row title="" fetchUrl = {requests.fetchDocumentaries} />
+        <Row title="NetFlix Originals" fetchUrl = {requests.fetchNetflixOriginals} />
+        <Row title="Trending Now" fetchUrl = {requests.fetchTrending} />
+        <Row title="Top Rated" fetchUrl = {requests.fetchTopRated} />
+        <Row title="Action Movies" fetchUrl = {requests.fetchActionMovies} />
+        <Row title="Comdey Novies" fetchUrl = {requests.fetchComedyMovies} />
+        <Row title="Horror Movies" fetchUrl = {requests.fetchHorrorMovies} />
+        <Row title="Romance Movies" fetchUrl = {requests.fetchRomanceMovies} />
+        <Row title="Documentaries" fetchUrl = {requests.fetchDocumentaries} />
     </div>
   )
 }
