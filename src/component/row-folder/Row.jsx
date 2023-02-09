@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./row.css";
 import BaseAxiosURL from "../../axiosData/baseAxiosURl.js";
 
-const Row = ({ title, fetchUrl, isLargeRow =false }) => {
+const Row = ({ title, fetchUrl, isLargeRow = false }) => {
   // here I will fetch the data for all movies inside the useState
   // tmdb default image url is => https://image.tmdb.org/t/p/original
   const baseUrl = "https://image.tmdb.org/t/p/original";
@@ -22,7 +22,7 @@ const Row = ({ title, fetchUrl, isLargeRow =false }) => {
     fetchData();
   }, [fetchUrl]);
 
-    // console.log(movies);
+  // console.log(movies);
 
   return (
     <div className="row">
@@ -31,9 +31,8 @@ const Row = ({ title, fetchUrl, isLargeRow =false }) => {
       <div className="row__posters">
         {movies.map(
           (movie) =>
-            // (isLargeRow && movie.poster_path) ||
-            // (!isLargeRow && movie.backdrop_path && 
-            (
+            ((isLargeRow && movie.poster_path) ||
+            (!isLargeRow && movie.backdrop_path)) && (
               <img
                 className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                 key={movie.id}
