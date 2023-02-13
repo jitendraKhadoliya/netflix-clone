@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import "./signUpPage.css";
-import {auth} from '../../config/firebase';
-import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {auth, googleProvider} from '../../config/firebase';
+import {createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import {signInWithEmailAndPassword} from 'firebase/auth';
-
+import google_logo from '../../assets/google-logo.png';
 
 const SignUpPage = () => {
   // i will use useref hook for capturing the data from form tag because using this hook i can choose html elements
@@ -33,6 +33,16 @@ const SignUpPage = () => {
     }catch(err){
       alert(err.message)
     }
+  }
+
+  const signInWithGoogle = async (e)=>{
+    e.preventDefault();
+
+    try{
+      await signInWithPopup(auth,googleProvider)
+    }catch(err){
+      alert(err.message);
+    }
 
   }
 
@@ -42,10 +52,15 @@ const SignUpPage = () => {
         <h2>Sign In</h2>
         <input type="email" ref={emailref} placeholder="email" />
         <input type="password" ref={passwordref} placeholder="password" />
-        <button type="submit" onClick={signIn}>Sign In</button>
+        <button type="submit" onClick={signIn} className= "signIn__btn">Sign In</button>
+        <button type="submit" onClick={signInWithGoogle} className="google__btn">
+          <img src={google_logo} alt="google-logo" className="google__logo" />
+          <span> Login With Google</span>
+          </button>
+
         <h4>
           <span className="signUpPage__gray">New to NetFlix? </span>
-          <span className="signUpPage__link" onClick={register}>Sign Up now.</span>
+          <span className="signUpPage__link" onClick={register} >Sign Up now.</span>
         </h4>
       </form>
     </div>

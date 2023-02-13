@@ -19,7 +19,6 @@ const LogIn = () => {
         <button className="logInPage__button" onClick={() => setSignIn(true)}>
           Sign In
         </button>
-
         <div className="loginPage__gradient" />
       </div>
 
