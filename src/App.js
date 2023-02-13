@@ -7,6 +7,7 @@ import {auth} from './config/firebase';
 import { useDispatch, useSelector } from "react-redux";
 import { logIn, logOut, selectUser } from "./features/userSlice";
 import ProfileScreen from "./pages.jsx/ProfileScreen";
+import NoPage from "./pages.jsx/NoPage";
 
 function App() {
   const user = useSelector(selectUser);
@@ -23,7 +24,7 @@ function App() {
         // console.log(useAuth);
       }else{
         // user is logged out
-        dispatch(logOut)
+        dispatch(logOut())
       }
     });
 
@@ -38,8 +39,9 @@ function App() {
           <LoginScreen />
         ) : (
           <Routes>
-            <Route path="/" element={<HomeScreen />} />
+            <Route index path="/" element={<HomeScreen />} />
             <Route path='/profile' element={<ProfileScreen />} /> 
+            <Route path='*' element={<NoPage />}  />
           </Routes>
         )}
       </Router>
