@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
     const[handleShow,setHandleShow] = useState(false);
-    // for nevigation purpose i am going to use nevigation hook from react router dom
-    const nevigate = useNavigate();
+    // for navigation purpose i am going to use navigation hook from react router dom
+    const navigate = useNavigate();
 
     
     const transitionNavBar = ()=>{
@@ -26,9 +26,9 @@ const NavBar = () => {
   return (
     <div className={`nav ${handleShow && 'nav__black' } `}>
       <div className="nav__contents">
-        <img onClick={()=>nevigate("/")} src={netFlix_logo} alt="netFlix_logo" className="nav__logo" />
+        <img onClick={()=>navigate("/")} src={netFlix_logo} alt="netFlix_logo" className="nav__logo" />
         <img
-          onClick={()=> nevigate("/profile")}
+          onClick={()=> navigate("/profile")}
           src={netFlix_avatar}
           alt="netFlix_avatar"
           className="nav__avatar"

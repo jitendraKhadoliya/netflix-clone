@@ -2,7 +2,7 @@
 // import firebase from './firebase';
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
-import { getAuth,GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBO2SfO_ZvQc-GgfOhgEnC4MgzO5dJbmIs",
@@ -11,21 +11,20 @@ const firebaseConfig = {
   storageBucket: "netflix-clone-jinix.appspot.com",
   messagingSenderId: "61577292912",
   appId: "1:61577292912:web:66d09d378d9135770758b5",
-  measurementId: "G-87Z6H6TJQH"
+  measurementId: "G-87Z6H6TJQH",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
-// for authantication i Will use here auth function 
+// for authentication i Will use here auth function
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
 // for database i will use firestore
 // const db = firebase.firestore();
 
-
-// now i will export them 
+// now i will export them
 // export {auth};
 // export default db;
