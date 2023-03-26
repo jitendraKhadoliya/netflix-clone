@@ -28,8 +28,8 @@ const LogIn = () => {
           <SignUpPage />
         ) : (
           <>
-            <h2>Unlimited flims, TV Programs and more.</h2>
-            <h3>Watch anywhere. Cencel any Time</h3>
+            <h2>Unlimited films, TV Programs and more.</h2>
+            <h3>Watch anywhere. Cancel any Time</h3>
             <h4>
               Ready to Watch? Enter your Email to create or restart your
               membership

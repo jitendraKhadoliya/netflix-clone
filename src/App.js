@@ -1,35 +1,37 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import HomeScreen from "./pages.jsx/HomeScreen";
+import HomeScreen from "./pages/HomeScreen";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginScreen from "./pages.jsx/LoginScreen";
-import {auth} from './config/firebase';
+import LoginScreen from "./pages/LoginScreen";
+import { auth } from "./config/Firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn, logOut, selectUser } from "./features/userSlice";
-import ProfileScreen from "./pages.jsx/ProfileScreen";
-import NoPage from "./pages.jsx/NoPage";
+import ProfileScreen from "./pages/ProfileScreen";
+import NoPage from "./pages/NoPage";
 
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    const unsubscribe =  auth.onAuthStateChanged((useAuth)=>{
-      if(useAuth){
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((useAuth) => {
+      if (useAuth) {
         // user is logged in
-        dispatch(logIn({
-          uid : useAuth.uid,
-          email : useAuth.email,
-        }))
+        dispatch(
+          logIn({
+            uid: useAuth.uid,
+            email: useAuth.email,
+          })
+        );
         // console.log(useAuth);
-      }else{
+      } else {
         // user is logged out
-        dispatch(logOut())
+        dispatch(logOut());
       }
     });
 
     return unsubscribe;
-  },[dispatch])
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -40,8 +42,8 @@ function App() {
         ) : (
           <Routes>
             <Route index path="/" element={<HomeScreen />} />
-            <Route path='/profile' element={<ProfileScreen />} /> 
-            <Route path='*' element={<NoPage />}  />
+            <Route path="/profile" element={<ProfileScreen />} />
+            <Route path="*" element={<NoPage />} />
           </Routes>
         )}
       </Router>
