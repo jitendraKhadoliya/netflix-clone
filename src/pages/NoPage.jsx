@@ -30,7 +30,7 @@ const NoPage = () => {
           border: "none",
         }}
       >
-        Go To Home Page
+        Go To Home screen Page
       </button>
     </div>
   );
